@@ -1,0 +1,23 @@
+
+
+1. Dependencias Globales: -g / --global
+    - funcionan en todo el equipo/computadora
+    - Git
+    - Nodemon 
+    - Yarn
+    - NPM
+    - create-react-app
+    - Node.JS
+
+2. Dependencias Locales: son aquellas que sólo funcionan en el PROYECTO
+    - La app 01 => SQL => dependencia a SQL
+    - La app 02 => Mongo => dependencia a Mongo
+
+3. Dev Dependencias: sólo las uso en modo Developers o cuando desarrollo la app
+    - Nodemon
+
+4. Dependencias de Producción: son aquellas que se usan en producción
+    - Express
+    - Mysql
+    - Mongoose
+    - MongoDB
