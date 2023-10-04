@@ -1,27 +1,20 @@
-import express from 'express';
-const router = express.Router();
+import { Router } from 'express';
 import { check } from 'express-validator'
-import { 
-    appInicio,
-    userCreate
-} from '../controller/userController.mjs';
+import { userLogin, userCreate } from '../controller/userController.js';
 
+const router = Router();
 
-router.get('/', appInicio);
+router.get('/login', userLogin);
 
-router.post('/', 
+router.post('/create', 
     [
         check('nombre').isLength({ min: 4 }),
         check('email').isEmail(),
         check('password').isLength({ min: 6 }),
     ],
     userCreate
-    );
+);
 
 //crear un formulario con nombre, email y password
 //router.get('/user', userRegister);
-
-
-
-
 export default router;

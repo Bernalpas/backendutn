@@ -1,20 +1,24 @@
 import { validationResult } from 'express-validator'
 
 
-const appInicio = (req, res) => {
-    res.render('index')
+const userLogin = (req, res) => {
+    res.render('login')
 }
 
 
-const userCreate = (req, res) => (req, res) => {
+const userCreate = (req, res) => {
 
     const { nombre, email, password } = req.body;
 
     const errores = validationResult(req);
 
+    if (!errores.isEmpty()) {
+        console.log(errores);
+        return res.send(`<h1 style="color: red">Errores en los datos ingresados</h1>`)
+    }
+
     console.log('=======================================================');
     
-    console.log(errores);
     
     console.log(`Los datos recibidos son ${nombre} - ${email} - ${password}`);
     
@@ -28,9 +32,7 @@ const userCreate = (req, res) => (req, res) => {
 
 }
 
-
-
 export {
-    appInicio, 
+    userLogin, 
     userCreate
 }

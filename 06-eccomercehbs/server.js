@@ -1,7 +1,7 @@
 //1. recordar la extensión de los archivos para import en ES6
 //2. Podemos cambiar el nombre a la hora de importar con el export default app;
 //import miapp from './app.js'
-import app from './app.mjs'
+import app from './app.js'
 import dotev from 'dotenv';
 //dotev.config(path: {'./config/.env'});
 dotev.config();
@@ -9,7 +9,7 @@ dotev.config();
 const PORT = process.env.PORT || 8080;
 
 //nos conectamos a la database
-import './database/conexion.mjs';
+//import './database/conexion.js';
 
 //levantamos el servidor 
 //const server = miapp.listen(PORT, () => { 
