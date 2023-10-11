@@ -2,11 +2,58 @@ import { validationResult } from 'express-validator'
 import bcrypt from 'bcrypt';
 import connection from '../database/conexion.js'
 
+//sing in
 const userLogin = (req, res) => {
+
+    const { email, password } = req.body;
+
+    console.log(`1. Los datos son: ${email}, ${password}`)
+
+    const errores = validationResult(req);
+
+    if (!errores.isEmpty()) {
+        console.log(errores);
+        return res.send(`<h1 style="color: red">Errores en los datos ingresados</h1>`)
+    }
+
+    let sql = `SELECT * FROM USUARIOS WHERE email = '${email}'`;
+
+    //buscamos en la database al usuario 
+    connection.query(sql, (error, result) => {
+
+        if(result.length === 0){
+            return res.send(`<h1 style="color: red">Usuario no encontrado</h1>`)
+        }
+
+        if(error) {
+            console.log(error);
+            return res.send(`<h1 style="color: red">Cayó nuestra database</h1>`)
+            //throw error;
+        }else{
+            console.log(result[0].password);
+            return res.json({
+                mensaje: 'estás logueado',
+                email,
+                password
+            })
+        }
+    });
+
+
+
+
+
+}
+
+const userFormLogin = (req, res) => {
     res.render('login')
 }
 
+const userRegister = (req, res) => {
+    res.render('registro')
+}
 
+// sing up
 const userCreate = (req, res) => {
 
     const { nombre, email, password } = req.body;
@@ -52,6 +99,8 @@ const userCreate = (req, res) => {
 
 
 export {
-    userLogin, 
+    userLogin,
+    userRegister,
+    userFormLogin, 
     userCreate
 }

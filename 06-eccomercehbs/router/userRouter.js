@@ -1,10 +1,12 @@
 import { Router } from 'express';
 import { check } from 'express-validator'
-import { userLogin, userCreate } from '../controller/userController.js';
+import { userLogin, userRegister, userCreate, userFormLogin } from '../controller/userController.js';
 
 const router = Router();
 
-router.get('/login', userLogin);
+router.get('/login', userFormLogin);
+
+router.get('/registro', userRegister);
 
 router.post('/create', 
     [
@@ -13,6 +15,14 @@ router.post('/create',
         check('password').isLength({ min: 6 }),
     ],
     userCreate
+);
+
+router.post('/login', 
+    [
+        check('email').isEmail(),
+        check('password').isLength({ min: 6 }),
+    ],
+    userLogin
 );
 
 //crear un formulario con nombre, email y password
