@@ -1,0 +1,22 @@
+<div class="container mt-5 text-center">
+    <h1>Productos para la Venta</h1>
+</div>
+
+
+<div class="container">
+
+    {{#each dato}}
+
+    <div class="card" style="width: 25rem;">
+        <img src={{ imagen }} class="card-img-top" alt="imegen del Producto">
+        <div class="card-body">
+            <h5 class="card-title">{{ nombre }}</h5>
+            <p class="card-text">{{ precio }}</p>
+            <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+    </div>
+
+    {{/each}}
+
+
+</div>

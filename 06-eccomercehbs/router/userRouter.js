@@ -1,12 +1,18 @@
 import { Router } from 'express';
 import { check } from 'express-validator'
-import { userLogin, userRegister, userCreate, userFormLogin } from '../controller/userController.js';
+import { userLogin, userRegister, userCreate, userFormLogin, formProducto, createProducto, ventasProductos } from '../controller/userController.js';
 
 const router = Router();
 
 router.get('/login', userFormLogin);
 
 router.get('/registro', userRegister);
+
+router.get('/productos', formProducto);
+
+router.get('/ventas', ventasProductos);
+
+router.post('/productos', createProducto);
 
 router.post('/create', 
     [
@@ -28,3 +34,5 @@ router.post('/login',
 //crear un formulario con nombre, email y password
 //router.get('/user', userRegister);
 export default router;
+
+
