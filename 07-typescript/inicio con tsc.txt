@@ -1,0 +1,18 @@
+
+
+1. Instalamos tsc de forma global con el comando `npm install -g typescript`
+
+2. Podemos instalar de forma local con el comando `npm install -D typescript` o 
+npm install typescript --save-dev
+
+3. Iniciamos un proyecto de node con el comando `npm init -y`	
+
+4. Iniciamos un proyecto de tsc con el comando `tsc --init`
+
+5. Creamos el archivo index.ts
+
+6. Traspilamos el archivo ts a js con el comando `tsc index.ts`
+
+7. Para ejecutar el backend con NodeJs necesitamos instalar el módulo `npm i -D @types/node` y `npm i -D @types/express`
+
+8. No creamos ningún archivo JS
