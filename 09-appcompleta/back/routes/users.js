@@ -12,6 +12,10 @@ router.get('/', async (req, res) => {
 
 });
 
+
+//CRUD
+//Create: Inseert listo
+//READ: lectura de datos: listo
 router.post('/crear', async (req, res) => {
 
   const { nombre, apellido, dni } = req.body;
