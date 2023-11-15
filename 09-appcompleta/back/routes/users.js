@@ -5,7 +5,7 @@ const Persona = require('../models/persona');
 /* GET users listing. */
 router.get('/', async (req, res) => {
 
-  const personas = await Persona.find();
+  const personas = await Persona.find().lean();
   res.json({
     personas: personas
   });
@@ -20,8 +20,6 @@ router.post('/crear', async (req, res) => {
 
   const { nombre, apellido, dni } = req.body;
 
-  console.log(nombre, apellido, dni);
-
   const persona = new Persona({
     nombre: nombre,
     apellido: apellido,
@@ -29,6 +27,8 @@ router.post('/crear', async (req, res) => {
   });
 
   await Persona.create(persona);
+
+  console.log(`Soy el back y recibí estos datos ${nombre}, ${apellido}, ${dni}`)
 
   res.json({ 
     mensaje: 'Creamos un usuario'
