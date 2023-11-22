@@ -41,21 +41,10 @@ function Formulario() {
             setDni('');
 
         }catch(error){
-
             console.log(`Tenemos un error en ${error}`)
-
         }
 
-
     }
-
-
-
-
-
-
-
-
 
     return (
         <>

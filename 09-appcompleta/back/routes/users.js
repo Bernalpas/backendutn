@@ -5,7 +5,8 @@ const Persona = require('../models/persona');
 /* GET users listing. */
 router.get('/', async (req, res) => {
 
-  const personas = await Persona.find().lean();
+  //const personas = await Persona.find().lean();
+  const personas = await Persona.find();
   res.json({
     personas: personas
   });
